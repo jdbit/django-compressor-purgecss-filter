@@ -28,7 +28,7 @@ Install and configure [django-libsass](https://github.com/torchbox/django-libsas
 
 ## If the filter removes some classes that are actually in use
 
-This may happen when you have some dynamically loaded classes from JS or your Python code or when you use some classes in your content that don't exist in templates. You can fix this by adding an argument to PurgeCSS, for example, a whitelist of CSS classes that should not be removed:
+This may happen when you have some dynamically loaded classes from JS, Python code, or when you use some classes in your content that don't exist in templates. You can fix this by adding an argument to PurgeCSS to whitelist CSS classes that should not be removed:
 ```
 COMPRESS_PURGECSS_ARGS = "--safelist Class-name1 Class-name2 Class-name3"
 ```
