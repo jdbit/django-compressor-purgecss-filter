@@ -1,5 +1,5 @@
 # Remove unused CSS classes with the PurgeCSS filter for Django Compressor
-PurgeCSS filter for Django Compressor removes unused CSS and minimizes your CSS files. It automatically discovers all your template files and scans them for CSS classes then removes unused classes from your CSS files. Django Compressor also merges and minimizes your CSS files.
+PurgeCSS filter for Django Compressor removes unused CSS and makes your CSS files smaller. It automatically discovers all your template files and scans them for CSS classes then removes unused classes from your CSS files. Django Compressor also merges and minimizes your CSS files.
 
 ## Usage
 
