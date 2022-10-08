@@ -1,10 +1,12 @@
 from compressor.filters import CompilerFilter
-from django import template as django_template
 from django.conf import settings
 from pathlib import Path
+from django.template.loaders.app_directories import get_app_template_dirs
+
 
 COMPRESS_PURGECSS_BINARY = "purgecss"
 COMPRESS_PURGECSS_ARGS = ""
+COMPRESS_PURGECSS_APPS_INCLUDED = []
 
 
 class PurgeCSSFilter(CompilerFilter):
@@ -28,15 +30,16 @@ class PurgeCSSFilter(CompilerFilter):
         self.command += " --content {}".format(template_files)
 
     def get_all_template_files(self):
-        """ returns all template file names with full paths
-        """
-        dirs = []
         files = []
-        for engine in django_template.loader.engines.all():
-            # Exclude pip installed site package template dirs
-            dirs.extend(x for x in engine.template_dirs
-                        if 'site-packages' not in str(x))
+        apps = getattr(settings, "COMPRESS_PURGECSS_APPS_INCLUDED", COMPRESS_PURGECSS_APPS_INCLUDED)
+        dirs = get_app_template_dirs('templates')
         for d in dirs:
-            for f in Path(d).glob('**/*.html'):
-                files.append(str(f))
+            if 'site-packages' in str(d):
+                for app in apps:
+                    if app in str(d):
+                        for f in Path(d).glob('**/*.html'):
+                            files.append(str(f))
+            else:
+                for f in Path(d).glob('**/*.html'):
+                    files.append(str(f))
         return files
