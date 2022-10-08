@@ -33,8 +33,10 @@ This may happen when you have some dinamically loaded classes from JS or your Py
 COMPRESS_PURGECSS_ARGS = "--safelist Class-name1 Class-name2 Class-name3"
 ```
 By default, the filter doesn't scan third-party installed apps for templates, but you can include these templates as well with this setting:
+```
 COMPRESS_PURGECSS_APPS_INCLUDED [
     'allauth',
     'crispy',
     ...
 ]
+```
