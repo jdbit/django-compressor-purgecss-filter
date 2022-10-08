@@ -24,7 +24,7 @@ COMPRESS_FILTERS = {'css': ['YOUR_APP_NAME.purgecss_filter.PurgeCSSFilter', 'com
 
 ## If you would like to use it with SCSS files
 
-Install and configure [django-libsass](https://github.com/torchbox/django-libsass)
+Install and configure [django-libsass](https://github.com/torchbox/django-libsass).
 
 ## If the filter removes some classes that are actually in use
 
