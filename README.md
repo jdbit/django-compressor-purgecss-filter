@@ -21,6 +21,7 @@ PurgeCSS filter for Django Compressor removes unused CSS and makes your CSS file
 COMPRESS_FILTERS = {'css': ['YOUR_APP_NAME.purgecss_filter.PurgeCSSFilter', 'compressor.filters.css_default.CssAbsoluteFilter', 'compressor.filters.cssmin.rCSSMinFilter'], 'js': ['compressor.filters.jsmin.rJSMinFilter']}
 ```
 Replace YOUR_APP_NAME in the line above with the app name where you placed `purgecss_filter.py`.
+
 6. *(optional)* Turn on CSS compression when `DEBUG = True` by adding `COMPRESS_ENABLED = True` to `settings.py`.
 
 ## If you would like to use it with SCSS files
